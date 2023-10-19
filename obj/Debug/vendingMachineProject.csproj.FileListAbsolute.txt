@@ -1,0 +1,14 @@
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\bin\Debug\vendingMachineProject.exe.config
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\bin\Debug\vendingMachineProject.exe
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\bin\Debug\vendingMachineProject.pdb
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\obj\Debug\vendingMachineProject.csproj.AssemblyReference.cache
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\obj\Debug\vendingMachineProject.csproj.CoreCompileInputs.cache
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\obj\Debug\vendingMachineProject.exe
+E:\_School\Computer Science\bubbleSort\vendingMachineProject\obj\Debug\vendingMachineProject.pdb
+E:\_School\Computer Science\vendingMachineProject\bin\Debug\vendingMachineProject.exe.config
+E:\_School\Computer Science\vendingMachineProject\bin\Debug\vendingMachineProject.exe
+E:\_School\Computer Science\vendingMachineProject\bin\Debug\vendingMachineProject.pdb
+E:\_School\Computer Science\vendingMachineProject\obj\Debug\vendingMachineProject.csproj.AssemblyReference.cache
+E:\_School\Computer Science\vendingMachineProject\obj\Debug\vendingMachineProject.csproj.CoreCompileInputs.cache
+E:\_School\Computer Science\vendingMachineProject\obj\Debug\vendingMachineProject.exe
+E:\_School\Computer Science\vendingMachineProject\obj\Debug\vendingMachineProject.pdb
