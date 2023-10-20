@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 
-class Item
+class Item // class for each item in the vending machine
 {
     public string name;
     public int stock;
     public double price;
-    public Item(string name, int stock, double price)
+    public Item(string name, int stock, double price) // constructor which assigns all necassary attribues to each object created under the class Item
     {
         this.name = name;
         this.stock = stock;
@@ -40,7 +40,7 @@ class Program
 
         Item twix = new Item("twix", 10, 0.8); Item doritos = new Item("doritos", 10, 1.2); Item snickers = new Item("bean", 10, 0.8); Item skittles = new Item("dog", 10, 0.6); Item niknaks = new Item("crust", 10, 1.2); Item crunchie = new Item("geeb", 10, 0.8); Item steak = new Item("steak", 10, 12); // making items
 
-        List<Item> items = new List<Item> { twix, doritos, snickers, skittles, niknaks, crunchie, steak };  // list of items  
+        List<Item> items = new List<Item> { twix, doritos, snickers, skittles, niknaks, crunchie, steak };  // list of items (in vending machine)  
 
         while (true)
         {
@@ -71,7 +71,7 @@ class Program
             }
         }
     }
-    static void Admin(ref List<Item> items)
+    static void Admin(ref List<Item> items) // unlocks admin panel
     {
         string choice = "";
 
@@ -105,7 +105,7 @@ class Program
         }
 
     }
-    public static void OutputVendingMachine(List<Item> items, double total)
+    public static void OutputVendingMachine(List<Item> items, double total) //outputs the vending machine
     {
         int i = 1;
 
@@ -120,13 +120,13 @@ class Program
         Console.WriteLine($"\nTotal money entered: £{total}");
     }
 
-    static void WelcomeScreen(ref string choice)
+    static void WelcomeScreen(ref string choice) // prints the welcome screen
     {
         Console.WriteLine("\n1) Insert coins\n2) Select product\n3) Exit\n");
         choice = Console.ReadLine();
     }
 
-    static void Dispense(ref double total, ref List<Item> items, ref int selected)
+    static void Dispense(ref double total, ref List<Item> items, ref int selected) // handles user input for dispensing
     {
 
         OutputVendingMachine(items, total);
@@ -156,7 +156,7 @@ class Program
         catch { }
     }
 
-    static void InsertCoins(ref double total, List<Item> items)
+    static void InsertCoins(ref double total, List<Item> items) // lets the user insert coins (with validation)
     {
         string tempTotal = "bean";
         while (tempTotal != "")
@@ -179,7 +179,7 @@ class Program
         }
     }
 
-    static void Exit()
+    static void Exit() // refunds money and resets for next user
     {
         Console.Clear();
         Console.WriteLine("All money refunded!");
