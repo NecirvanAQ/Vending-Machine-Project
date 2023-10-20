@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Schema;
 using System.Threading;
 
 class Item
@@ -55,8 +49,6 @@ class Program
 
             if (choice == "1")
             {
-                InsertCoins(ref total, items);
-                InsertCoins(ref total, items);
                 InsertCoins(ref total, items);
             }
 
@@ -139,7 +131,8 @@ class Program
 
         OutputVendingMachine(items, total);
         Console.WriteLine("Enter choice: ");
-        selected = Convert.ToInt32(Console.ReadLine());
+
+        try { selected = Convert.ToInt32(Console.ReadLine());
         if (items[selected - 1].SoldOut(items[selected - 1].stock) == true)
         {
             Console.WriteLine("This item is sold out!");
@@ -148,20 +141,42 @@ class Program
         if (total > items[selected - 1].price && items[selected - 1].SoldOut(items[selected - 1].stock) == false)
         {
             total -= items[selected].price;
-            items[selected].Buy(ref items[selected-1].stock);
+            items[selected].Buy(ref items[selected - 1].stock);
         }
         if (total < items[selected - 1].price)
         {
             Console.WriteLine("You do not have enough money!");
             Console.ReadKey();
         }
+        else
+        {
+
+        }
+        }
+        catch { }
     }
 
     static void InsertCoins(ref double total, List<Item> items)
     {
-        OutputVendingMachine(items, total);
-        Console.WriteLine("Insert coins: ");
-        total += Convert.ToDouble(Console.ReadLine());
+        string tempTotal = "bean";
+        while (tempTotal != "")
+        {
+            OutputVendingMachine(items, total);
+            Console.WriteLine("Insert coins: ");
+            tempTotal = Console.ReadLine();
+            try
+            {
+                double insert = Convert.ToDouble(tempTotal);
+
+                if (insert == 0.05 || insert == 0.10 || insert == 0.2 || insert == 0.5 || insert == 1 || insert == 2)
+                {
+                    total += insert;
+                }
+            }
+            catch
+            {
+            }
+        }
     }
 
     static void Exit()
@@ -170,6 +185,7 @@ class Program
         Console.WriteLine("All money refunded!");
         Thread.Sleep(5000);
     }
+
 
 }
 
