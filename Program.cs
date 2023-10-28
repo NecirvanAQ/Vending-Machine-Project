@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 
+/*
+THE CODE TO ENTER THE ADMIN PANEL IS 'necircode'!!!!!
+*/
+
 class Item // class for each item in the vending machine
 {
     public string name;
@@ -32,8 +36,9 @@ class Item // class for each item in the vending machine
 }
 class Program
 {
-    static void Main(string[] args)
+    static void Main(string[] args) // main method
     {
+        // essential variables
         string choice = "";
         double total = 0;
         int selected = 0;
@@ -42,7 +47,7 @@ class Program
 
         List<Item> items = new List<Item> { twix, doritos, snickers, skittles, niknaks, crunchie, steak };  // list of items (in vending machine)  
 
-        while (true)
+        while (true) // main loop
         {
             OutputVendingMachine(items,total);
             WelcomeScreen(ref choice);
@@ -65,7 +70,7 @@ class Program
                 selected = 0;
             }
 
-            if (choice == "necircode")
+            if (choice == "necircode") // admin code
             {
                 Admin(ref items);
             }
@@ -98,9 +103,9 @@ class Program
                 Console.WriteLine("Enter stock: ");
                 int stock = Convert.ToInt32(Console.ReadLine());
 
-                Item bob = new Item(name, stock, price); // fix this
+                Item a = new Item(name, stock, price);
 
-                items.Add(bob);
+                items.Add(a);
             }
         }
 
