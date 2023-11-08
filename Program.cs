@@ -32,7 +32,7 @@ class Item // class for each item in the vending machine
     {
         if (stock == 0) { return true; }
         return false;
-    }  
+    }
 }
 class Program
 {
@@ -43,13 +43,13 @@ class Program
         double total = 0;
         int selected = 0;
 
-        Item twix = new Item("twix", 10, 0.8); Item doritos = new Item("doritos", 10, 1.2); Item snickers = new Item("bean", 10, 0.8); Item skittles = new Item("dog", 10, 0.6); Item niknaks = new Item("crust", 10, 1.2); Item crunchie = new Item("geeb", 10, 0.8); Item steak = new Item("steak", 10, 12); // making items
+        Item twix = new Item("twix", 10, 0.8); Item doritos = new Item("doritos", 10, 1.2); Item snickers = new Item("bean", 10, 0.8); Item skittles = new Item("dog", 10, 0.6); Item niknaks = new Item("crust", 10, 1.2); Item crunchie = new Item("geeb", 10, 0.8); Item steak = new Item("steak", 10, 0.8); // making items
 
         List<Item> items = new List<Item> { twix, doritos, snickers, skittles, niknaks, crunchie, steak };  // list of items (in vending machine)  
 
         while (true) // main loop
         {
-            OutputVendingMachine(items,total);
+            OutputVendingMachine(items, total);
             WelcomeScreen(ref choice);
 
             if (choice == "1")
@@ -137,26 +137,25 @@ class Program
         OutputVendingMachine(items, total);
         Console.WriteLine("Enter choice: ");
 
-        try { selected = Convert.ToInt32(Console.ReadLine());
-        if (items[selected - 1].SoldOut(items[selected - 1].stock) == true)
+        try
         {
-            Console.WriteLine("This item is sold out!");
-            Console.ReadKey();
-        }
-        if (total > items[selected - 1].price && items[selected - 1].SoldOut(items[selected - 1].stock) == false)
-        {
-            total -= items[selected].price;
-            items[selected].Buy(ref items[selected - 1].stock);
-        }
-        if (total < items[selected - 1].price)
-        {
-            Console.WriteLine("You do not have enough money!");
-            Console.ReadKey();
-        }
-        else
-        {
+            selected = Convert.ToInt32(Console.ReadLine()) - 1;
+            if (items[selected].SoldOut(items[selected].stock) == true)
+            {
+                Console.WriteLine("This item is sold out!");
+                Console.ReadKey();
+            }
+            if (total < items[selected].price)
+            {
+                Console.WriteLine("You do not have enough money!");
+                Console.ReadKey();
+            }
+            else if (total > items[selected].price && items[selected].SoldOut(items[selected].stock) == false)
+            {
+                total -= Math.Round(items[selected].price, 2);
+                items[selected].Buy(ref items[selected].stock);
+            }
 
-        }
         }
         catch { }
     }
@@ -193,4 +192,3 @@ class Program
 
 
 }
-
